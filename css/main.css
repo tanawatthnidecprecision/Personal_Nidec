@@ -4,6 +4,8 @@ body {
   font-family: "kanit";
   background-color: #f7f6fedd;
   overflow: hidden;
+  background-image: url(./../images/background.png);
+  background-size: cover;
 }
 
 .container-item {
@@ -91,7 +93,7 @@ body {
 }
 
 .swal2-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 @media only screen and(max-width: 800px) {
