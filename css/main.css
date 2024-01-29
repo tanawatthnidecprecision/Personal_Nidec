@@ -1,0 +1,121 @@
+@import url(font.css);
+
+body {
+  font-family: "kanit";
+  background-color: #f7f6fedd;
+  overflow: hidden;
+}
+
+.container-item {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.card {
+  display: inline-block;
+  width: 200px;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  height: 140px;
+  margin: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+  & .icon-item {
+    display: block;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    bottom: -20px;
+    right: -20px;
+    position: absolute;
+  }
+
+  & span {
+    font-size: 14pt;
+    display: block;
+    margin-top: 40px;
+  }
+
+  & a {
+    color: #dddddd70;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card {
+    display: block;
+    width: 85%;
+  }
+}
+.card:hover {
+  transform: scale(0.9);
+}
+
+.company_logo {
+  width: 200px;
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+}
+.company_name {
+  text-align: center;
+  margin-bottom: 100px;
+  opacity: 0.6;
+}
+
+#qr-reader {
+  left: 36%;
+  width: 28% !important;
+  top: -1200dvh;
+  z-index: 999;
+  position: absolute !important;
+  border: 0px solid transparent !important;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 1000px #00000097;
+}
+
+#qr-reader__dashboard {
+  display: none;
+}
+
+#qr-reader__scan_region {
+  & video {
+    width: 100% !important;
+  }
+}
+
+.swal2-title {
+    font-size: 20px;
+}
+
+@media only screen and(max-width: 800px) {
+  #qr-reader {
+    width: 70% !important;
+  }
+}
+
+.color-linear-blue {
+  background: linear-gradient(#291691dd, #8944ce);
+}
+
+.color-linear-blue-dark {
+  background: linear-gradient(#2f2857dd, #8057a9);
+}
+
+.color-linear-orange {
+  background: linear-gradient(#b67419dd, #e5aa4a);
+}
+
+.color-linear-green {
+  background: linear-gradient(#61885bdd, #5b735d);
+}
+
+.color-linear-red {
+  background: linear-gradient(#885b6ddd, #735b61);
+}
