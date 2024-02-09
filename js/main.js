@@ -143,7 +143,7 @@ var lastResult = 0;
               `,
               text: textContent,
               showConfirmButton: false,
-              timer: 10000,
+              timer: 3000,
             });
 
             localStorage.setItem(
