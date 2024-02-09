@@ -121,3 +121,14 @@ body {
 .color-linear-red {
   background: linear-gradient(#885b6ddd, #735b61);
 }
+
+
+#background-none-active {
+  background: transparent;
+  width: 100dvw;
+  height: 100dvh;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
