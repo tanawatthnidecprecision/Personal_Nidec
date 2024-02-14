@@ -33,6 +33,8 @@ async function onScanSuccess(decodedText, decodedResult) {
     ++countResults;
     lastResult = decodedText;
     let temp = JSON.parse(localStorage.getItem("data_" + decodedText));
+    const responseData = await window.module.$api.data_info.getInfoData(parseInt(decodedText),'id')
+    console.log(responseData)
     let textContent = ``;
     if (temp) {
       if (temp["action"] == 0) {
@@ -75,6 +77,7 @@ async function onScanSuccess(decodedText, decodedResult) {
               },
               "time_activity"
             );
+          
           if (
             responseInsert.status === "successful" &&
             responseInsert.data.length > 0
