@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/animation.background.css" />
     <script src="./js/sweetalert2@11.js"></script>
   </head>
-  <body>
+  <body class="background-default-cover">
     <!-- -->
     <div>
       <img
@@ -18,7 +18,7 @@
       <h4 class="company_name">NIDEC PRECISION COMPONENTS (THAILAND)</h4>
 
       <div id="qr-reader" width="200px"></div>
-      <div class="container-item">
+      <div class="container-item nd-aniamtion-popup-fade">
         <div
           class="card color-linear-blue"
           onclick="qrcodeReaderOpen('ห้องน้ำ')"
@@ -44,7 +44,9 @@
           <a>request repair</a>
         </div>
 
-        <div class="card color-linear-green">
+        <div class="card color-linear-green" onclick="(function(){
+          window.open('./input_config.html','_blank')
+        })()">
           <div
             class="icon-item"
             style="
@@ -90,6 +92,8 @@
         window.module = window.module || {};
         window.module.$api = $api;
       });
+
+      
     </script>
     <script src="./js/qrcode.js"></script>
     <script src="./js/main.js"></script>

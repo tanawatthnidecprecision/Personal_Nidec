@@ -3,52 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Input</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Personal - Config</title>
     <script src="./js/vue.global.js"></script>
     <link
       rel="stylesheet"
       href="https://tanawatthnidecprecision.github.io/CDN_nidec/module.css"
     />
   </head>
-  <body>
+  <body class="background-default-cover">
     <div id="app">
-      <div class="nd-paper">
+      <div class="nd-paper nd-mt-5 nd-mb-5 nd-aniamtion-popup-fade" style="height: auto !important; position: relative;">
         <!-- -->
-        <div class="nd-grid nd-w-9 nd-m-a nd-h-px-10">
+        <div class="nd-grid nd-w-10 nd-m-a nd-h-px-10">
           <!-- -->
-          <div class="nd-item-grid-3 nd-text-center nd-mb-1">3</div>
-          <div class="nd-item-grid-9 nd-text-center nd-mb-1">
-            <h3>PROCESS QUALITY CONTROL</h3>
+          <div 
+            class="nd-item-grid-12 nd-text-center nd-mb-2" 
+            style="color:#FFFFFF;background: linear-gradient(#e97d18,#8f7d14);height: 70px;line-height: 35px; border-radius: 10px;"
+            >
+            <h3 class="nd-size-17">PROCESS QUALITY CONTROL</h3>
           </div>
         </div>
 
         <!-- -->
         <div class="nd-grid nd-w-9 nd-m-a">
           <!-- -->
-          <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-1">
-            <div class="nd-item-grid-3 nd-text-center nd-mb-1">Model :</div>
-            <div class="nd-item-grid-8 nd-text-center nd-mb-1">
-              <input type="text" class="nd-input-smail nd-w-10" />
+          <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-2">
+            <div class="nd-item-grid-3 nd-text-center nd-mb-1 nd-size-12">Model :</div>
+            <div class="nd-item-grid-8 nd-text-center nd-mb-1" >
+              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.model"/>
             </div>
           </div>
-          <div class="nd-grid nd-item-grid-8 nd-text-center nd-mb-1">
+          <div class="nd-grid nd-item-grid-8 nd-text-center nd-mb-2">
             <div class="nd-grid nd-item-grid-6 nd-m-a">
               <!-- -->
-              <div class="nd-item-grid-6 nd-text-center nd-mb-1">
+              <div class="nd-item-grid-6 nd-text-center nd-mb-2 nd-size-12">
                 Product Date :
               </div>
-              <div class="nd-item-grid-4 nd-text-center nd-mb-1">
-                <input type="text" class="nd-input-smail nd-w-10" />
+              <div class="nd-item-grid-4 nd-text-center nd-mb-2">
+                <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.product_date"/>
               </div>
             </div>
 
             <div class="nd-grid nd-item-grid-6 nd-m-a">
               <!-- -->
-              <div class="nd-item-grid-6 nd-text-center nd-mb-1">
+              <div class="nd-item-grid-6 nd-text-center nd-mb-2 nd-size-12">
                 Lot No./Suffix :
               </div>
-              <div class="nd-item-grid-6 nd-text-center nd-mb-1">
-                <input type="text" class="nd-input-smail nd-w-10" />
+              <div class="nd-item-grid-6 nd-text-center nd-mb-2">
+                <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.lot_no"/>
               </div>
             </div>
           </div>
@@ -57,32 +60,32 @@
         <!-- -->
         <div class="nd-grid nd-w-9 nd-m-a">
           <!-- -->
-          <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-1">
-            <div class="nd-item-grid-3 nd-text-center nd-mb-1">Input :</div>
+          <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-2">
+            <div class="nd-item-grid-3 nd-text-center nd-mb-2 nd-size-12">Input :</div>
             <div class="nd-item-grid-8 nd-text-center nd-mb-1">
-              <input type="text" class="nd-input-smail nd-w-10" />
+              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.input"/>
             </div>
           </div>
           <div class="nd-grid nd-item-grid-8 nd-text-center nd-mb-1">
             <div class="nd-grid nd-item-grid-6 nd-m-a">
               <!-- -->
-              <div class="nd-item-grid-4 nd-text-center nd-mb-1">Output :</div>
+              <div class="nd-item-grid-4 nd-text-center nd-mb-1 nd-size-12">Output :</div>
               <div class="nd-item-grid-6 nd-text-center nd-mb-1">
-                <input type="text" class="nd-input-smail nd-w-11" />
+                <input type="text" class="nd-input-smail nd-w-11" v-model="objectData.output"/>
               </div>
             </div>
 
             <div class="nd-grid nd-item-grid-6 nd-w-10 nd-m-a">
               <!-- -->
-              <div class="nd-item-grid-6 nd-text-center nd-mb-1">Shift :</div>
+              <div class="nd-item-grid-6 nd-text-center nd-mb-1 nd-size-12">Shift :</div>
               <div
                 class="nd-grid nd-item-grid-6 nd-w-10 nd-text-center nd-mb-1"
               >
                 <div class="nd-item-grid-6">
-                  <input type="checkbox" class="nd-inline" /><span> Day</span>
+                  <input type="checkbox" class="nd-inline" v-model="objectData.day"/><span class="nd-size-12"> Day</span>
                 </div>
                 <div class="nd-item-grid-6">
-                  <input type="checkbox" class="nd-inline" /><span> Night</span>
+                  <input type="checkbox" class="nd-inline" v-model="objectData.night"/><span class="nd-size-12"> Night</span>
                 </div>
               </div>
             </div>
@@ -93,18 +96,18 @@
         <div class="nd-grid nd-w-9 nd-m-a">
           <!-- -->
           <div class="nd-grid nd-item-grid-6 nd-w-10 nd-text-center nd-mb-1">
-            <div class="nd-item-grid-2">
+            <div class="nd-item-grid-2 nd-size-12">
               <span>Remark :</span>
             </div>
             <div class="nd-item-grid-10">
-              <input type="text" class="nd-input-smail nd-w-10" />
+              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.remark"/>
             </div>
           </div>
           <div class="nd-item-grid-6 nd-w-10 nd-text-center nd-mb-1"></div>
         </div>
 
         <!-- table -->
-        <div class="nd-grid">
+        <div class="nd-grid nd-mt-3">
           <div class="nd-item-grid-4">
             <div class="nd-grid">
               <div class="nd-item-grid-2 nd-text-center nd-size-10">
@@ -121,7 +124,7 @@
           </div>
           <div class="nd-item-grid-8">
             <div class="nd-grid">
-                <div class="nd-item-grid-4 nd-text-center nd-size-10">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
                     <div class="nd-card">
                         <span>Operator Name</span>
                     </div>
@@ -131,7 +134,7 @@
                         <span>M/P Condition</span>
                     </div>
                 </div>
-                <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
                     <div class="nd-card">
                         <span>Related</span>
                     </div>
@@ -149,41 +152,43 @@
                 </div>
               </div>
               <div class="nd-item-grid-10 nd-text-center nd-size-10">
-                <div class="nd-card nd-grid">
-
+                <div class="nd-grid nd-card">
+                  <div class="">
+                    <span> &nbsp;</span>
+                </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="nd-item-grid-8">
             <div class="nd-grid">
-                <div class="nd-item-grid-4 nd-text-center nd-size-10">
-                    <div class=nd-grid" style="display: grid; grid-template-columns: 50% 50% !important;">
-                        <div class="nd-item-grid-3">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10 ">
+                    <div class="">
+                        <div class="nd-item-grid-3 nd-card nd-inline nd-w-5">
                           <span>Name</span>
                         </div>
-                        <div class="nd-item-grid-3">
+                        <div class="nd-item-grid-3 nd-card nd-inline nd-w-5">
                           <span>EMP No.</span>
                         </div>
                     </div>
                 </div>
                 <div class="nd-item-grid-6 nd-text-center nd-size-10">
                   <div class=nd-grid">
-                    <div class="nd-item-grid-3">
+                    <div class="nd-item-grid-3 nd-card nd-inline nd-w-2">
                       <span>Old</span>
                     </div>
-                    <div class="nd-item-grid-3">
+                    <div class="nd-item-grid-3 nd-card nd-inline nd-w-2">
                       <span>New</span>
                     </div>
-                    <div class="nd-item-grid-3">
+                    <div class="nd-item-grid-3 nd-card nd-inline nd-w-2">
                       <span>Support</span>
                     </div>
-                    <div class="nd-item-grid-3">
+                    <div class="nd-item-grid-3 nd-card nd-inline nd-w-4">
                       <span>Confirm  by Core Team</span>
                     </div>
+                  </div>
                 </div>
-                </div>
-                <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
                     <div class="nd-card">
                         <span>Condition</span>
                     </div>
@@ -192,20 +197,396 @@
           </div>
         </div>
 
-        <!-- body -->
+        <br />
+        
+        <template v-for="(item, index) in listData">
+        <!-- table td -->
+        <div class="nd-grid" v-if="controlPanel">
+          <div class="nd-item-grid-4">
+            <div class="nd-grid">
+              <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="">
+                  {{item.process_no}}
+                </div>
+              </div>
+              <div class="nd-item-grid-10 nd-text-center nd-size-10">
+                <div class="">
+                  <div class="">
+                    {{item.process_name}}
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nd-item-grid-8">
+            <div class="nd-grid">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
+                    <div class=nd-grid">
+                        <div class="nd-item-grid-3 nd-inline nd-w-5">
+                          {{item.operator_name.name}}
+                        </div>
+                        <div class="nd-item-grid-3 nd-inline nd-w-5">
+                          {{item.operator_name.emp_no}}
+                        </div>
+                    </div>
+                </div>
+                <div class="nd-item-grid-6 nd-text-center nd-size-10">
+                  <div class="">
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      {{item.m_p_condition.old}}
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      {{item.m_p_condition.new}}
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      {{item.m_p_condition.support}}
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-4">
+                      {{item.m_p_condition.confirm_by_core_team}}
+                    </div>
+                </div>
+                </div>
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
+                    <div class="nd-grid">
+                      <div class="nd-item-grid-4">
+                        <input type="checkbox" class="nd-inline" disabled v-model="item.condition.wi"/><span class="nd-size-9"> WI</span>
+                      </div>
+                      <div class="nd-item-grid-6">
+                        <input type="checkbox" class="nd-inline" disabled v-model="item.condition.quipment"/><span class="nd-size-9"> quipment</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </template>
+        <!-- table td -->
+        <div class="nd-grid" v-if="controlPanel">
+          <div class="nd-item-grid-4">
+            <div class="nd-grid">
+              <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="">
+                  <input type="text" class="nd-input-smail nd-w-3" v-model="objectPanel.process_no"/>
+                </div>
+              </div>
+              <div class="nd-item-grid-10 nd-text-center nd-size-10">
+                <div class="">
+                  <div class="">
+                    <input type="text" class="nd-input-smail nd-ml-2" v-model="objectPanel.process_name"/>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nd-item-grid-8">
+            <div class="nd-grid">
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
+                    <div class=nd-grid">
+                        <div class="nd-item-grid-3 nd-inline nd-w-5">
+                          <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.operator_name.name"/>
+                        </div>
+                        <div class="nd-item-grid-3 nd-inline nd-w-5">
+                          <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.operator_name.emp_no"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="nd-item-grid-6 nd-text-center nd-size-10">
+                  <div class="">
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.old"/>
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.new"/>
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-2">
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.support"/>
+                    </div>
+                    <div class="nd-item-grid-3 nd-inline nd-w-4">
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-6" v-model="objectPanel.m_p_condition.confirm_by_core_team"/>
+                    </div>
+                </div>
+                </div>
+                <div class="nd-item-grid-3 nd-text-center nd-size-10">
+                    <div class="nd-grid">
+                      <div class="nd-item-grid-4">
+                        <input type="checkbox" class="nd-inline" v-model="objectPanel.condition.wi"/><span class="nd-size-9"> WI</span>
+                      </div>
+                      <div class="nd-item-grid-6">
+                        <input type="checkbox" class="nd-inline" v-model="objectPanel.condition.quipment"/><span class="nd-size-9"> quipment</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="nd-mt-1 nd-mb-1" v-if="controlPanel">
+          <button class="nd-size-10 nd-mr-1" style="cursor:pointer; font-weight: bold; float: right; background: transparent;border: 0px solid transparent;" @click="addDataList()">+ Add</button>
+        </div>
 
+        <!-- end table td-->
+        <br />
+        <!-- table -->
+        <div class="nd-grid">
+          <div class="nd-item-grid-4">
+            <div class="nd-grid">
+              <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="nd-card">
+                    <span></span>
+                </div>
+              </div>
+              <div class="nd-item-grid-10 nd-text-center nd-size-10">
+                <div class="nd-card">
+                    <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nd-item-grid-8">
+            <div class="nd-grid">
+                <div class="nd-item-grid-4 nd-text-center nd-size-10">
+                    <div class="nd-card">
+                        <span>Controlled By :</span>
+                    </div>
+                </div>
+                <div class="nd-item-grid-6 nd-text-center nd-size-10">
+                    <div class="nd-card nd-block nd-w-10">
+                        <span>&nbsp;</span>
+                    </div>
+                </div>
+                <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                    <div class="nd-card">
+                        <span>(Leader)</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- table -->
+        <div class="nd-grid">
+          <div class="nd-item-grid-4">
+            <div class="nd-grid">
+              <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                <div class="nd-card">
+                    <span></span>
+                </div>
+              </div>
+              <div class="nd-item-grid-10 nd-text-center nd-size-10">
+                <div class="nd-card">
+                    <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nd-item-grid-8">
+            <div class="nd-grid">
+                <div class="nd-item-grid-4 nd-text-center nd-size-10">
+                    <div class="nd-card">
+                        <span>Approved By :</span>
+                    </div>
+                </div>
+                <div class="nd-item-grid-6 nd-text-center nd-size-10">
+                    <div class="nd-card nd-block nd-w-10">
+                        <span>&nbsp;</span>
+                    </div>
+                </div>
+                <div class="nd-item-grid-2 nd-text-center nd-size-10">
+                    <div class="nd-card">
+                        <span>(Staff/Supervisor)</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- body -->
+        <div class="nd-w-10 nd-h-2 nd-block">
+          <button @click="submit()" class="nd-btn-success nd-mt-2 nd-mr-1" style="float: right;">save</button>
+        </div>
+        
+        <div class="nd-w-10 nd-h-2 nd-block">
+          <p class="nd-size-10" style="bottom: 0px; position: absolute;">
+            FM-07-026  Rev.01
+          </p>
+        </div>
+        
+      </div>
+
+      <div v-if="dialog" class="dialog nd-w-10">
+        <img src="./images/robot.png" />
+        <span>
+          <p>
+            {{ dialogDispay }}
+          </p>
+          <br/>
+          <button class="nd-btn-warning" style="bottom: 0px;" @click="()=>{
+            if(sateInfo == (datasetInfo.length-1)){
+              dialog = false;
+            }else{
+              sateInfo = sateInfo + 1
+            }
+          }" v-if="continueBtn">agree</button>
+        </span>
       </div>
     </div>
-
-    <script>
-      const { createApp, ref } = Vue;
+    <script type="module">
+      import { $api } from "./js/nidec.min.js";
+      const { createApp, ref, reactive, onMounted, watch, computed } = Vue;
 
       createApp({
         setup() {
-          const test = ref("aa");
+          const controlPanel = ref(true);
+
+          const listData = ref([]);
+          const dialog = ref(true)
+          const objectData = reactive({
+            model: "",
+            product_date: "",
+            lot_no: "",
+            input: "",
+            output: "",
+            day: false,
+            night: false,
+            remark: "",
+          })
+
+          const objectPanel = reactive({
+            process_no: "",
+            process_name: "",
+            operator_name: {
+              name: "",
+              emp_no: "",
+            },
+            m_p_condition: {
+              old: "",
+              new: "",
+              support: "",
+              confirm_by_core_team: "",
+
+            },
+            condition: {
+              wi: false,
+              quipment: false
+            }
+          })
+
+          const submit = async() => {
+            if(![objectData.process_no,objectData.model,objectData.process_name].includes("") ){
+              listData.value.forEach(async(item)=>{
+                console.log(item)
+                await $api.user_config.postConfig(
+                  {
+                    model:objectData.model,
+                    process_no: item.process_no,
+                    process_name: item.process_name,
+                    emp: item.operator_name.emp_no,
+                    user_name: item.operator_name.name,
+                    //mp_codition: objectPanel.m_p_condition,
+                    //"rerated_codition": [objectPanel.condition.wi,objectPanel.condition.quipment].filter((item)=> item == true).length ,
+                  },
+                  "user_config"
+                );
+              })
+              console.log($api)
+              
+            }
+          }
+
+          const clearObjectPanel = () => {
+            objectPanel.process_name="";
+            objectPanel.process_no="";
+            objectPanel.operator_name= {
+              name: "",
+              emp_no: "",
+            };
+            objectPanel.m_p_condition={
+              old: "",
+              new: "",
+              support: "",
+              confirm_by_core_team: "",
+
+            };
+            objectPanel.condition={
+              wi: false,
+              quipment: false
+            };
+          }
+
+          const addDataList = ()=>{
+            const listTemp = {
+              process_no: objectPanel.process_no,
+              process_name: objectPanel.process_name,
+              operator_name: objectPanel.operator_name,
+              m_p_condition: objectPanel.m_p_condition,
+              condition: objectPanel.condition
+            }
+            listData.value.push(listTemp)
+            clearObjectPanel()
+          }
+
+          
+
+          const datasetInfo = ref([
+            'เริ่มต้น',
+            'สวัสดี ยินดีต้อนรับเข้าสู่ PROCESS QUALITY CONTROL !! ระบบสำหรับการเพิ่มข้อมูลพนักงานและ process',
+            'กรุณาช่วยกันตรวจเช็คข้อมูลให้เรียบร้อยก่อนนำเข้าสู่ระบบ',
+            'ขอบคุณครับ',
+          ])
+
+          const sateInfo = ref(0)
+          const indexCountState = ref(0)
+          const dialogDispay = ref("");
+
+          const skipDialog = ()=>{
+            console.log(sateInfo.value,datasetInfo.value.length)
+            if(sateInfo.value <= datasetInfo.value.length){
+              
+              setTimeout(()=>{
+                let state = indexCountState.value
+                dialogDispay.value =dialogDispay.value + datasetInfo.value[sateInfo.value].substring(state,state+1);
+                if(dialogDispay.value.length < datasetInfo.value[sateInfo.value].length){
+                  indexCountState.value += 1;
+                  skipDialog()
+                }
+              },10)
+            }
+          }
+
+          const continueBtn = computed(()=>{
+            console.log(indexCountState.value.length,sateInfo.value)
+            if(datasetInfo.value.length-1 <= sateInfo.value.length){
+              return false;
+            }
+            return (indexCountState.value) == datasetInfo.value[sateInfo.value].length-1
+          })
+
+
+          watch(sateInfo,()=>{
+            console.log(sateInfo.value)
+            dialogDispay.value = "";
+            indexCountState.value =  0;
+            skipDialog()
+          })
+
+          onMounted(async()=>{
+            console.log('start',$api.paperless)
+            sateInfo.value += 1
+            
+          })
 
           return {
-            test,
+            controlPanel,
+            listData,
+            objectPanel,
+            addDataList,
+            objectData,
+            submit,
+
+            dialog,
+            dialogDispay,
+            skipDialog,
+            sateInfo,
+            datasetInfo,
+            indexCountState,
+            continueBtn
           };
         },
       }).mount("#app");
