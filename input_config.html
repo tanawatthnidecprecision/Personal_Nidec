@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://tanawatthnidecprecision.github.io/CDN_nidec/module.css"
     />
+    <script src="./js/sweetalert2@11.js"></script>
   </head>
   <body class="background-default-cover">
     <div id="app">
@@ -31,7 +32,7 @@
           <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-2">
             <div class="nd-item-grid-3 nd-text-center nd-mb-1 nd-size-12">Model :</div>
             <div class="nd-item-grid-8 nd-text-center nd-mb-1" >
-              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.model"/>
+              <input type="text" class="nd-input-smail nd-w-10" :disabled="[2].includes(permission)" v-model="objectData.model"/>
             </div>
           </div>
           <div class="nd-grid nd-item-grid-8 nd-text-center nd-mb-2">
@@ -41,7 +42,7 @@
                 Product Date :
               </div>
               <div class="nd-item-grid-4 nd-text-center nd-mb-2">
-                <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.product_date"/>
+                <input type="text" class="nd-input-smail nd-w-10" disabled v-model="objectData.product_date"/>
               </div>
             </div>
 
@@ -51,7 +52,7 @@
                 Lot No./Suffix :
               </div>
               <div class="nd-item-grid-6 nd-text-center nd-mb-2">
-                <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.lot_no"/>
+                <input type="number" class="nd-input-smail nd-w-10" :disabled="[2].includes(permission)" v-model="objectData.lot_no"/>
               </div>
             </div>
           </div>
@@ -63,7 +64,7 @@
           <div class="nd-item-grid-4 nd-grid nd-text-center nd-mb-2">
             <div class="nd-item-grid-3 nd-text-center nd-mb-2 nd-size-12">Input :</div>
             <div class="nd-item-grid-8 nd-text-center nd-mb-1">
-              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.input"/>
+              <input type="number" class="nd-input-smail nd-w-10" :disabled="[2].includes(permission)" v-model="objectData.input"/>
             </div>
           </div>
           <div class="nd-grid nd-item-grid-8 nd-text-center nd-mb-1">
@@ -71,7 +72,7 @@
               <!-- -->
               <div class="nd-item-grid-4 nd-text-center nd-mb-1 nd-size-12">Output :</div>
               <div class="nd-item-grid-6 nd-text-center nd-mb-1">
-                <input type="text" class="nd-input-smail nd-w-11" v-model="objectData.output"/>
+                <input type="number" class="nd-input-smail nd-w-11" :disabled="[2].includes(permission)" v-model="objectData.output"/>
               </div>
             </div>
 
@@ -82,10 +83,10 @@
                 class="nd-grid nd-item-grid-6 nd-w-10 nd-text-center nd-mb-1"
               >
                 <div class="nd-item-grid-6">
-                  <input type="checkbox" class="nd-inline" v-model="objectData.day"/><span class="nd-size-12"> Day</span>
+                  <input type="checkbox" class="nd-inline" :disabled="[2].includes(permission)" v-model="objectData.day"/><span class="nd-size-12"> Day</span>
                 </div>
                 <div class="nd-item-grid-6">
-                  <input type="checkbox" class="nd-inline" v-model="objectData.night"/><span class="nd-size-12"> Night</span>
+                  <input type="checkbox" class="nd-inline" :disabled="[2].includes(permission)" v-model="objectData.night"/><span class="nd-size-12"> Night</span>
                 </div>
               </div>
             </div>
@@ -100,7 +101,7 @@
               <span>Remark :</span>
             </div>
             <div class="nd-item-grid-10">
-              <input type="text" class="nd-input-smail nd-w-10" v-model="objectData.remark"/>
+              <input type="text" class="nd-input-smail nd-w-10" :disabled="[2].includes(permission)" v-model="objectData.remark"/>
             </div>
           </div>
           <div class="nd-item-grid-6 nd-w-10 nd-text-center nd-mb-1"></div>
@@ -277,7 +278,7 @@
               </div>
             </div>
           </div>
-          <div class="nd-item-grid-8">
+          <div class="nd-item-grid-8" >
             <div class="nd-grid">
                 <div class="nd-item-grid-3 nd-text-center nd-size-10">
                     <div class=nd-grid">
@@ -292,16 +293,16 @@
                 <div class="nd-item-grid-6 nd-text-center nd-size-10">
                   <div class="">
                     <div class="nd-item-grid-3 nd-inline nd-w-2">
-                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.old"/>
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" :disabled="[0,1].includes(permission)" v-model="objectPanel.m_p_condition.old"/>
                     </div>
                     <div class="nd-item-grid-3 nd-inline nd-w-2">
-                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.new"/>
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" :disabled="[0,1].includes(permission)" v-model="objectPanel.m_p_condition.new"/>
                     </div>
                     <div class="nd-item-grid-3 nd-inline nd-w-2">
-                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" v-model="objectPanel.m_p_condition.support"/>
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-3" :disabled="[0,1].includes(permission)" v-model="objectPanel.m_p_condition.support"/>
                     </div>
                     <div class="nd-item-grid-3 nd-inline nd-w-4">
-                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-6" v-model="objectPanel.m_p_condition.confirm_by_core_team"/>
+                      <input type="text" class="nd-input-smail nd-ml-1 nd-w-6" :disabled="[0,1].includes(permission)" v-model="objectPanel.m_p_condition.confirm_by_core_team"/>
                     </div>
                 </div>
                 </div>
@@ -320,6 +321,7 @@
           
         </div>
         <div class="nd-mt-1 nd-mb-1" v-if="controlPanel">
+          <button class="nd-size-10 nd-mr-1" style="cursor:pointer; font-weight: bold; float: right; background: transparent;border: 0px solid transparent;" @click="(()=>{listData =[]})">Clear</button>
           <button class="nd-size-10 nd-mr-1" style="cursor:pointer; font-weight: bold; float: right; background: transparent;border: 0px solid transparent;" @click="addDataList()">+ Add</button>
         </div>
 
@@ -398,8 +400,13 @@
           </div>
         </div>
         <!-- body -->
-        <div class="nd-w-10 nd-h-2 nd-block">
-          <button @click="submit()" class="nd-btn-success nd-mt-2 nd-mr-1" style="float: right;">save</button>
+        <div class="nd-w-10 nd-h-2 nd-block" v-if="[0,1].includes(permission)">
+          <button @click="submit()" 
+          v-if="saveBtn && listData.length > 0"
+            class="nd-btn-success nd-mt-2 nd-mr-1" style="float: right;">save</button>
+            <button 
+          v-if="!saveBtn || listData.length == 0"
+            class="nd-btn-disable nd-mt-2 nd-mr-1" style="float: right;">save</button>
         </div>
         
         <div class="nd-w-10 nd-h-2 nd-block">
@@ -411,7 +418,7 @@
       </div>
 
       <div v-if="dialog" class="dialog nd-w-10">
-        <img src="./images/robot.png" />
+        <img src="./images/robot.png" style="width: 250px; right: 10px;"/>
         <span>
           <p>
             {{ dialogDispay }}
@@ -470,23 +477,62 @@
 
           const submit = async() => {
             if(![objectData.process_no,objectData.model,objectData.process_name].includes("") ){
-              listData.value.forEach(async(item)=>{
-                console.log(item)
-                await $api.user_config.postConfig(
+              const responseCreateModel = await $api.user_config.postConfig(
+                  {
+                    model:objectData.model,
+                    lot_no: objectData.lot_no,
+                    input: objectData.input,
+                    output: objectData.output,
+                    day: objectData.day,
+                    night: objectData.night,
+                    remark: objectData.remark
+                  },
+                  "data_models"
+                );
+              
+                let responseAllUser = []
+              listData.value.forEach((item)=>{
+                
+
+                const responseUser =  $api.user_config.postConfig(
                   {
                     model:objectData.model,
                     process_no: item.process_no,
                     process_name: item.process_name,
                     emp: item.operator_name.emp_no,
                     user_name: item.operator_name.name,
-                    //mp_codition: objectPanel.m_p_condition,
-                    //"rerated_codition": [objectPanel.condition.wi,objectPanel.condition.quipment].filter((item)=> item == true).length ,
+                    related_codition: [item.condition.wi,item.condition.quipment].filter((item)=> item == true).length ,
                   },
                   "user_config"
                 );
+                responseAllUser.push(responseUser)
               })
-              console.log($api)
-              
+
+              try {
+                if(responseCreateModel.status == 'successful' && responsePromise.filter((item)=>item.status == 'successful').length == listData.value.length){
+                  Swal.fire({
+                    title: "Successful",
+                    text: "Your data has been config.",
+                    icon: "success",
+                    allowOutsideClick: false,
+                  });
+                }else{
+                Swal.fire({
+                    title: "Someting wrong?",
+                    text: "Please recheck your data.",
+                    icon: "error",
+                    allowOutsideClick: false,
+                });
+                }
+              } catch (error) {
+                Swal.fire({
+                    title: "Someting wrong?",
+                    text: "Please recheck your data.",
+                    icon: "error",
+                    allowOutsideClick: false,
+                });
+                
+              }
             }
           }
 
@@ -511,15 +557,18 @@
           }
 
           const addDataList = ()=>{
-            const listTemp = {
-              process_no: objectPanel.process_no,
-              process_name: objectPanel.process_name,
-              operator_name: objectPanel.operator_name,
-              m_p_condition: objectPanel.m_p_condition,
-              condition: objectPanel.condition
+            if(![objectPanel.process_no, objectPanel.process_no,objectPanel.operator_name.name,objectPanel.operator_name.emp_no].includes("")){
+              const listTemp = {
+                process_no: objectPanel.process_no,
+                process_name: objectPanel.process_name,
+                operator_name: objectPanel.operator_name,
+                m_p_condition: objectPanel.m_p_condition,
+                condition: objectPanel.condition
+              }
+              listData.value.push(listTemp)
+              clearObjectPanel()
             }
-            listData.value.push(listTemp)
-            clearObjectPanel()
+            
           }
 
           
@@ -534,6 +583,8 @@
           const sateInfo = ref(0)
           const indexCountState = ref(0)
           const dialogDispay = ref("");
+
+          const permission = ref(0);
 
           const skipDialog = ()=>{
             console.log(sateInfo.value,datasetInfo.value.length)
@@ -551,11 +602,15 @@
           }
 
           const continueBtn = computed(()=>{
-            console.log(indexCountState.value.length,sateInfo.value)
             if(datasetInfo.value.length-1 <= sateInfo.value.length){
               return false;
             }
             return (indexCountState.value) == datasetInfo.value[sateInfo.value].length-1
+          })
+
+          const saveBtn = computed(()=>{
+            console.log( Object.values(objectData).filter(item=>item != '') , Object.keys(objectData))
+            return Object.values(objectData).filter(item=>item != '').length == Object.values(objectData).length-1;
           })
 
 
@@ -569,7 +624,12 @@
           onMounted(async()=>{
             console.log('start',$api.paperless)
             sateInfo.value += 1
-            
+            objectData.product_date = new Date().toLocaleDateString()
+            if([2].includes(permission.value)){
+              controlPanel.value = false;
+            }else if([0].includes(permission.value)){
+              dialog.value = true;
+            }
           })
 
           return {
@@ -586,7 +646,9 @@
             sateInfo,
             datasetInfo,
             indexCountState,
-            continueBtn
+            continueBtn,
+            saveBtn,
+            permission
           };
         },
       }).mount("#app");
