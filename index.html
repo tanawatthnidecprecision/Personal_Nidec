@@ -44,9 +44,12 @@
           <a>request repair</a>
         </div>
 
-        <div class="card color-linear-green" onclick="(function(){
+        <div
+          class="card color-linear-green"
+          onclick="(function(){
           window.open('./input_config.html','_blank')
-        })()">
+        })()"
+        >
           <div
             class="icon-item"
             style="
@@ -57,9 +60,12 @@
           <a>input config</a>
         </div>
 
-        <div class="card color-linear-blue" onclick="(function(){
+        <div
+          class="card color-linear-blue"
+          onclick="(function(){
           window.open('./input_config.html','_blank')
-        })()">
+        })()"
+        >
           <div
             class="icon-item"
             style="
@@ -70,9 +76,12 @@
           <a>find data</a>
         </div>
 
-        <div class="card color-linear-red" onclick="(function(){
+        <div
+          class="card color-linear-red"
+          onclick="(function(){
           window.open('./input_config.html','_blank')
-        })()">
+        })()"
+        >
           <div
             class="icon-item"
             style="
@@ -83,7 +92,7 @@
           <a>overtime</a>
         </div>
 
-        <div class="card color-linear-blue-dark">
+        <div class="card color-linear-blue-dark" id="display_dialog">
           <div
             class="icon-item"
             style="
@@ -93,22 +102,56 @@
           <span>กิจกรรม</span>
           <a>Ativity</a>
         </div>
+
+        
       </div>
     </div>
-    <div id="background-none-active">
-
+    <div id="background-none-active"></div>
+    <div class="nd-dialog">
+      <div class="title">
+        <span>เพิ่มเติม</span>
+      </div>
+      <div>
+        <div class="card color-linear-blue" onclick="qrcodeReaderOpen('เวียนเทียน')">
+          <span>กิจกรรม เวียนเทียน</span>
+          <a>Ativity 1</a>
+        </div>
+  
+        <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('แอบกินขนม')">
+          <span>กิจกรรม แอบกินขนม</span>
+          <a>Ativity 2</a>
+        </div>
+  
+        <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('เมาส์มอย')">
+          <span>กิจกรรม เมาส์มอย</span>
+          <a>Ativity 3</a>
+        </div>
+      </div>
     </div>
-
     <script src="./js/animation_background.js"></script>
+    <script src="./js/sweetalert2@11.js"></script>
     <script type="module">
       import { $api } from "./js/nidec.min.js";
 
       window.addEventListener("load", async () => {
         window.module = window.module || {};
         window.module.$api = $api;
+        window.Swal = Swal;
       });
 
       
+    </script>
+
+    <script>
+      document
+        .getElementById("display_dialog")
+        .addEventListener("click", () => {
+          console.log(document.querySelectorAll(".nd-dialog")[0]);
+          document.getElementById("background-none-active").style.display = "block";
+          document.querySelectorAll(".nd-dialog")[0].style.display = "block";
+          console.log(document.getElementById("background-none-active"))
+          
+        });
     </script>
     <script src="./js/qrcode.js"></script>
     <script src="./js/main.js"></script>

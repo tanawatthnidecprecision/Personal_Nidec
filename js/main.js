@@ -26,15 +26,18 @@ function convertTo24Hour(time12h) {
 }
 
 async function onScanSuccess(decodedText, decodedResult) {
-  if (!countScan) {
+  if (!countScan && type_activity == "ห้องน้ำ") {
     countScan = true;
     qrcodeReaderClose();
     beep();
     ++countResults;
     lastResult = decodedText;
     let temp = JSON.parse(localStorage.getItem("data_" + decodedText));
-    const responseData = await window.module.$api.data_info.getInfoData(parseInt(decodedText),'id')
-    console.log(responseData)
+    const responseData = await window.module.$api.data_info.getInfoData(
+      parseInt(decodedText),
+      "id"
+    );
+    console.log(responseData);
     let textContent = ``;
     if (temp) {
       if (temp["action"] == 0) {
@@ -77,7 +80,7 @@ async function onScanSuccess(decodedText, decodedResult) {
               },
               "time_activity"
             );
-          
+
           if (
             responseInsert.status === "successful" &&
             responseInsert.data.length > 0
@@ -161,6 +164,34 @@ async function onScanSuccess(decodedText, decodedResult) {
         timer: 2000,
       });
     }
+  } else {
+    qrcodeReaderClose();
+    const response = await window.module.$api.user_config.getConfig(
+      `emp='${decodedText}'`
+    );
+    if (response.status == "successful" && response.data.length > 0) {
+      // await window.module.$api.user_config.postConfig(
+      //   {
+      //     emp: temp["number"],
+      //     index_ac: 7,
+      //     process_name: response["data"][0][3],
+      //     login: new Date().toLocaleTimeString(),
+      //   },
+      //   "time_activity"
+      // );
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `
+              ชื่อ : ${response.data[0][5]} รหัส : ${decodedText} 
+              model_name: ${response.data[0][1]}
+              `,
+        text: "เข้าร่วม " + type_activity,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
   }
 }
 var runCamera = false;
@@ -168,6 +199,7 @@ var type_activity = "";
 function qrcodeReaderOpen(type) {
   type_activity = type;
   runCamera = true;
+  document.querySelectorAll(".nd-dialog")[0].style.display = "none";
   document.getElementById("qr-reader").style.top = "250px";
   try {
     document.getElementById("background-none-active").style.display = "block";
@@ -182,7 +214,12 @@ function qrcodeReaderClose() {
   countScan = false;
   document.getElementById("qr-reader").style.top = "-1200dvh";
   document.getElementById("background-none-active").style.display = "none";
-  document.getElementById("html5-qrcode-button-camera-stop").click();
+  if (document.getElementById("html5-qrcode-button-camera-stop")) {
+    document.getElementById("html5-qrcode-button-camera-stop").click();
+  }
+  if (document.querySelectorAll(".nd-dialog").length > 0) {
+    document.querySelectorAll(".nd-dialog")[0].style.display = "none";
+  }
 }
 
 function loadPermission() {
@@ -206,6 +243,8 @@ window.document.addEventListener("keydown", (e) => {
   }
 });
 
-document.getElementById("background-none-active").addEventListener("click", () => {
-  qrcodeReaderClose();
-});
+document
+  .getElementById("background-none-active")
+  .addEventListener("click", () => {
+    qrcodeReaderClose();
+  });
