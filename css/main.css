@@ -220,7 +220,7 @@ body {
 
 
 .nd-dialog {
-  
+  background-image: url(./../images/background_ac.png);
   .Quality{
     border-radius: 10px;
     border: 2px solid rgb(100, 145, 235) ;
