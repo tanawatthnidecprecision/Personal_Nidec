@@ -222,19 +222,41 @@ body {
 .nd-dialog {
   
   .Quality{
-    border: 2px solid cornflowerblue ;
-    width: 100%;
+    border-radius: 10px;
+    border: 2px solid rgb(100, 145, 235) ;
+    margin-left: 0;
+    /* position: fixed; */
+    /* width: 100%; */
     text-align: center;
-    display: block;
+    /* display: block; */
     margin-top: 15px;
   }
   .idle_time{
-    border: 2px solid rgb(92, 223, 80) ;
-    width: 100%;
+    border-radius: 10px;
+    border: 2px solid rgb(100, 145, 235) ;
+    /* position: absolute; */
+    /* width: 100%; */
     text-align: center;
-    display: block;
+    /* display: block; */
     margin-top: 15px;
   }   
+  .Exclusion_time{
+    border-radius: 10px;
+    border: 2px solid rgb(100, 145, 235) ;
+    /* position: absolute; */
+    /* width: 100%; */
+    text-align: center;
+    /* display: block; */
+    margin-top: 15px;
+  }
+  .Indirect_time{
+    border-radius: 10px;
+    border: 2px solid rgb(92, 223, 80) ;
+    /* width: 100%; */
+    text-align: center;
+    /* display: block; */
+    margin-top: 15px;
+  }
   
   margin-top: 20dvh;
   background-color: #cff7d4;
@@ -242,7 +264,7 @@ body {
   position: absolute;
   width: center;
   top: 0;
-  margin-left: 10dvw;
+  margin-left: 0;
   display: none;
   box-shadow: 0px 0px 0px 1500px #00000099;
   z-index: 9;
@@ -266,8 +288,8 @@ body {
 
   & div:nth-child(2) > div {
     display: block;
-    width: 80%;
-    height: 50%;
+    width: 60%;
+    height: auto;
   }
 
   & div:nth-child(2) > div > span,a {
@@ -287,6 +309,6 @@ body {
     width: 100%;
     text-align: center;
     display: block;
-    margin-top: 15px;
+    margin-top: 20px;
   }
 }
