@@ -164,21 +164,190 @@ async function onScanSuccess(decodedText, decodedResult) {
         timer: 2000,
       });
     }
+
   } else {
     qrcodeReaderClose();
     const response = await window.module.$api.user_config.getConfig(
       `emp='${decodedText}'`
     );
     if (response.status == "successful" && response.data.length > 0) {
-      // await window.module.$api.user_config.postConfig(
-      //   {
-      //     emp: temp["number"],
-      //     index_ac: 7,
-      //     process_name: response["data"][0][3],
-      //     login: new Date().toLocaleTimeString(),
-      //   },
-      //   "time_activity"
-      // );
+      await window.module.$api.user_config.postConfig(
+        {
+          emp: temp["number"],
+          index_ac: 7,
+          process_name: response["data"][0][3],
+          login: new Date().toLocaleTimeString(),
+        },
+        "time_activity"
+      );
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `
+              ชื่อ : ${response.data[0][5]} รหัส : ${decodedText} 
+              model_name: ${response.data[0][1]}
+              `,
+        text: "เข้าร่วม " + type_activity,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  }
+  if (!countScan && type_activity == "แจ้งซ่อม") {
+    countScan = true;
+    qrcodeReaderClose();
+    beep();
+    ++countResults;
+    lastResult = decodedText;
+    let temp = JSON.parse(localStorage.getItem("data_" + decodedText));
+    const responseData = await window.module.$api.data_info.getInfoData(
+      parseInt(decodedText),
+      "id"
+    );
+    console.log(responseData);
+    let textContent = ``;
+    if (temp) {
+      if (temp["action"] == 0) {
+        const responseDataInfo = await window.module.$api.user_config.getConfig(
+          `emp='${temp["number"]}'`
+        );
+        console.log(`กิจกรรม ${temp["acitivity"]} : สิ้นสุด ${decodedText}`);
+
+        let cal_time =
+          Math.abs(Math.abs(new Date().getTime() - parseInt(temp["date"]))) /
+          1000;
+
+        let contentText = `ใช้เวลาไป ${
+          Math.floor(parseInt(cal_time) / 60) > 0
+            ? Math.floor(parseInt(cal_time) / 60) + " นาที "
+            : ""
+        }${parseInt(cal_time) % 60} วินาที`;
+        textContent = `สิ้นสุดกิจกรรม ${temp["acitivity"]} \n` + contentText;
+
+        if (responseDataInfo.data && responseDataInfo.data.length > 0) {
+          const responseInsert =
+            await window.module.$api.user_config.postConfig(
+              {
+                emp: temp["number"],
+                index_ac: 7,
+                process_name: responseDataInfo["data"][0][3],
+                login:
+                  new Date(parseInt(temp["date"]))
+                    .toLocaleDateString()
+                    .replaceAll("/", "-") +
+                  " " +
+                  convertTo24Hour(
+                    new Date(parseInt(temp["date"])).toLocaleTimeString()
+                  ),
+                logout:
+                  new Date().toLocaleDateString().replaceAll("/", "-") +
+                  " " +
+                  convertTo24Hour(new Date().toLocaleTimeString()),
+                diff: cal_time,
+              },
+              "time_activity"
+            );
+
+          if (
+            responseInsert.status === "successful" &&
+            responseInsert.data.length > 0
+          ) {
+            localStorage.setItem(
+              `data_${decodedText}`,
+              JSON.stringify({
+                number: decodedText,
+                action: 1,
+              })
+            );
+          }
+        } else {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: `เกิดข้อผิดพลาด`,
+            text: "ไม่พบข้อมูล",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          return 0;
+        }
+      } else {
+        textContent = `กิจกรรม ${type_activity} : เริ่มกิจกรรม`;
+        localStorage.setItem(
+          `data_${decodedText}`,
+          JSON.stringify({
+            number: decodedText,
+            action: 0,
+            date: new Date().getTime(),
+            acitivity: type_activity,
+          })
+        );
+      }
+    } else {
+      textContent = `กิจกรรม ${type_activity} : เริ่มกิจกรรม`;
+
+      localStorage.setItem(
+        `data_${decodedText}`,
+        JSON.stringify({
+          number: decodedText,
+          action: 0,
+          date: new Date().getTime(),
+          acitivity: type_activity,
+        })
+      );
+    }
+
+    const response = await window.module.$api.user_config.getConfig(
+      `emp='${decodedText}'`
+    );
+    if (response.status == "successful" && response.data.length > 0) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `
+              ชื่อ : ${response.data[0][5]} รหัส : ${decodedText} 
+              model_name: ${response.data[0][1]}
+              `,
+        text: textContent,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+
+      localStorage.setItem(
+        decodedText,
+        JSON.stringify({
+          model_name: response.data[0][1],
+          process_name: response.data[0][3],
+          name: response.data[0][5],
+        })
+      );
+    } else {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: `เกิดข้อผิดพลาด`,
+        text: "ไม่พบข้อมูล",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+    
+  } else {
+    qrcodeReaderClose();
+    const response = await window.module.$api.user_config.getConfig(
+      `emp='${decodedText}'`
+    );
+    if (response.status == "successful" && response.data.length > 0) {
+      await window.module.$api.user_config.postConfig(
+        {
+          emp: temp["number"],
+          index_ac: 7,
+          process_name: response["data"][0][3],
+          login: new Date().toLocaleTimeString(),
+        },
+        "time_activity"
+      );
 
       Swal.fire({
         position: "top-end",

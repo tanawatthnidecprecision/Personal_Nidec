@@ -12,7 +12,7 @@
     <!-- -->
     <div>
       <img
-        src="./images/nidec-logo-2315949679-seeklogo.com.png"
+        src="./images/nidec-logo-2315949679-seeklogo.com.gif"
         class="company_logo"
       />
       <h4 class="company_name">NIDEC PRECISION COMPONENTS (THAILAND)</h4>
@@ -20,7 +20,7 @@
       <div id="qr-reader" width="200px"></div>
       <div class="container-item nd-aniamtion-popup-fade">
         <div
-          class="card color-linear-blue"
+          class="card color-linear-green-blue"
           onclick="qrcodeReaderOpen('ห้องน้ำ')"
         >
           <div
@@ -30,10 +30,13 @@
             "
           ></div>
           <span>เข้าห้องน้ำ</span>
-          <a>toliet</a>
+          <a>toilet</a>
         </div>
 
-        <div class="card color-linear-orange">
+        <div 
+          class="card color-linear-orange"
+          onclick="qrcodeReaderOpen('แจ้งซ่อม')"
+        >
           <div
             class="icon-item"
             style="
@@ -77,7 +80,7 @@
         </div>
 
         <div
-          class="card color-linear-red"
+          class="card color-linear-red-pink"
           onclick="(function(){
           window.open('./input_config.html','_blank')
         })()"
@@ -112,19 +115,82 @@
         <span>เพิ่มเติม</span>
       </div>
       <div>
-        <div class="card color-linear-blue" onclick="qrcodeReaderOpen('เวียนเทียน')">
-          <span>กิจกรรม เวียนเทียน</span>
-          <a>Ativity 1</a>
+        <div class="Quality">
+          <h4>Quality<h4>
+          <div class="card color-linear-blue" onclick="qrcodeReaderOpen('ซ่อมงาน')">
+            <span>ซ่อมงาน จากการประกอบงานของไลน์การผลิต</span>
+            <!-- <a> Quality 2</a> -->
+          </div>
         </div>
-  
-        <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('แอบกินขนม')">
-          <span>กิจกรรม แอบกินขนม</span>
-          <a>Ativity 2</a>
+
+
+        <div class="idle_time">
+          <h4>Idle time<h4>
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การลงบันทึก')">
+            <span>การลงบันทึกต่างๆ</span>
+            <!-- <a>Idle time 2</a> -->
+          </div>
+          
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('ชื้นส่วนประกอบงานหมด')">
+            <span>ชื้นส่วนประกอบงานหมด, ส่งมอบไม่ทันต่อการผลิต</span>
+            <a>Idle time 3</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('ไฟดับ')">
+            <span>ไฟดับ ไฟตก</span>
+            <a>Idle time 4</a>
+          </div>
         </div>
-  
-        <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('เมาส์มอย')">
-          <span>กิจกรรม เมาส์มอย</span>
-          <a>Ativity 3</a>
+
+
+        <div class="Exclusion_time">
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การทำความสะอาด')">
+            <span>การทำความสะอาดในพื้นที่การทำงาน</span>
+            <a>Exclusion Time 1</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การฝึกอบรมนอกกระบวนการผลิต')">
+            <span>การฝึกอบรมนอกกระบวนการผลิต</span>
+            <a>Exclusion Time 2</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การทำ EVALUATION')">
+            <span>การทำงาน EVALUATION</span>
+            <a>Exclusion Time 3</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การตรวจสอบชื้นส่วน')">
+            <span>การตรวจสอบชื้นส่วน ก่อนนำมาใช้งาน</span>
+            <a>Exclusion Time 4</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การแจ้งข้อมูล')">
+            <span>ประชุมหรือกิจกรรมเรื่องทั่วไป เช่นการแจ้งข่าวสารเกี่ยวกับกิจกรรมของบริษัท</span>
+            <a>Exclusion Time 5</a>
+          </div>
+        </div>
+
+
+        <div class="Indirect_time">
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การประชุม')">
+            <span>การประชุม เพื่อชี้แจงเกี่ยวกับงาน เช่นลูกค้าเคลม</span>
+            <a>Indirect time 1</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('เครื่องจักรเสีย')">
+            <span>เครื่องจักรเสีย, อยู่ในขณะซ่อมบำรุง </span>
+            <a>Indirect time 2</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การเปลี่ยนแปลงรุ่นหรือไลน์การผลิต')">
+            <span>การเปลี่ยนแปลงรุ่นหรือไลน์การผลิต</span>
+            <a>Indirect time 3</a>
+          </div>
+
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การฝึกอบรมในกระบวนการผลิต')">
+            <span>การฝึกอบรมในกระบวนการผลิต</span>
+            <a>Indirect time 4</a>
+          </div>
         </div>
       </div>
     </div>
