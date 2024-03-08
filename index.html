@@ -15,7 +15,7 @@
         src="./images/nidec-logo-2315949679-seeklogo.com.gif"
         class="company_logo"
       />
-      <h4 class="company_name">NIDEC PRECISION COMPONENTS (THAILAND)</h4>
+      <h4 class="company_name">NIDEC PRECISION COMPONENTS (THAILAND) </h4>
 
       <div id="qr-reader" width="200px"></div>
       <div class="container-item nd-aniamtion-popup-fade">
@@ -82,7 +82,7 @@
         <div
           class="card color-linear-red-pink"
           onclick="(function(){
-          window.open('./input_config.html','_blank')
+          window.open('./ot_request.html','_blank')
         })()"
         >
           <div
@@ -106,7 +106,6 @@
           <a>Ativity</a>
         </div>
 
-        
       </div>
     </div>
     <div id="background-none-active"></div>
@@ -115,10 +114,9 @@
         <span>เพิ่มเติม</span>
       </div>
       <div>
-        
         <div class="Quality">
-          <h4>Quality<h4>
-          <div class="card color-linear-blue" onclick="qrcodeReaderOpen('ซ่อมงาน')">
+          <h4>Quality<h3>
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('ซ่อมงาน')">
             <span>ซ่อมงาน จากการประกอบงานของไลน์การผลิต</span>
             <!-- <a> Quality 2</a> -->
           </div>
@@ -126,12 +124,12 @@
 
 
         <div class="idle_time">
-          <h4>Idle time<h4>
+          <h4>Idle time<h3>
           <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การลงบันทึก')">
             <span>การลงบันทึกต่างๆ</span>
             <!-- <a>Idle time 2</a> -->
           </div>
-          
+
           <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('ชื้นส่วนประกอบงานหมด')">
             <span>ชื้นส่วนประกอบงานหมด, ส่งมอบไม่ทันต่อการผลิต</span>
             <!-- <a>Idle time 3</a> -->
@@ -145,7 +143,7 @@
 
 
         <div class="Exclusion_time">
-          <h4>Exclusion time</h4>
+          <h3>Exclusion time</h3>
           <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การทำความสะอาด')">
             <span>การทำความสะอาดในพื้นที่การทำงาน</span>
             <!-- <a>Exclusion Time 1</a> -->
@@ -156,7 +154,7 @@
             <!-- <a>Exclusion Time 2</a> -->
           </div>
 
-          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การทำ EVALUATION')">
+          <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การทำ-EVALUATION')">
             <span>การทำงาน EVALUATION</span>
             <!-- <a>Exclusion Time 3</a> -->
           </div>
@@ -174,7 +172,7 @@
 
 
         <div class="Indirect_time">
-          <h4>Indirect time</h4>
+          <h3>Indirect time</h3>
           <div class="card color-linear-blue-dark" onclick="qrcodeReaderOpen('การประชุม')">
             <span>การประชุม, เพื่อชี้แจงเกี่ยวกับงาน เช่นลูกค้าเคลม</span>
             <!-- <a>Indirect time 1</a> -->
@@ -209,17 +207,17 @@
       });
     </script>
 
-    <script>
-      document
-        .getElementById("display_dialog")
-        .addEventListener("click", () => {
-          console.log(document.querySelectorAll(".nd-dialog")[0]);
-          document.getElementById("background-none-active").style.display = "block";
-          document.querySelectorAll(".nd-dialog")[0].style.display = "block";
-          console.log(document.getElementById("background-none-active"))
-          
-        });
-    </script>
+      <script>
+        document
+          .getElementById("display_dialog")
+          .addEventListener("click", () => {
+            console.log(document.querySelectorAll(".nd-dialog")[0]);
+            document.getElementById("background-none-active").style.display = "block";
+            document.querySelectorAll(".nd-dialog")[0].style.display = "block";
+            console.log(document.getElementById("background-none-active"))
+            
+          });
+      </script>
     <script src="./js/qrcode.js"></script>
     <script src="./js/main.js"></script>
   </body>
